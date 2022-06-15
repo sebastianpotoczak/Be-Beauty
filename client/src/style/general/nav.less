@@ -1,0 +1,125 @@
+nav {
+background-image: url("../../assets/pexels-content-pixie-3554239.jpg");
+  background-size: cover;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  padding: 2px;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  font-family: "open-sans", sans-serif;
+}
+.nav_text {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  color: white;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 35px;
+  font-family: "Philosopher", sans-serif;
+  a {
+    text-decoration: none;
+    color: black;
+  & {
+      animation-fill-mode: both;
+      animation-duration: 1s;
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-name: fadeInDownBig;
+    }
+    @keyframes fadeInDownBig {
+      from {
+        opacity: 0;
+        transform: translate3d(0, -2000px, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    &:hover {
+      color: pink;
+    }
+  }
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  cursor: pointer;
+
+}
+
+label span {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  height: 7px;
+  margin: 7px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  flex-direction: column;
+  background-color: black;
+}
+
+.span:nth-of-type(1) {
+  width: 50%;
+}
+
+.span:nth-of-type(2) {
+  width: 100%;
+}
+
+.span:nth-of-type(3) {
+  width: 75%;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ span:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(8px, 0px);
+}
+
+input[type="checkbox"]:checked ~ span:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+
+input[type="checkbox"]:checked ~ span:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(30px, -11px) rotatez(45deg);
+}
+
+.tooltip_nav {
+  width: 400px;
+}
+.tooltip_contain {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  a {
+    font-family: "Philosopher", sans-serif;
+    font-size: 40px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: black;
+    .media-phone {
+      font-size: 20px;
+    }
+    &:hover {
+      color: pink;
+    }
+  }
+}

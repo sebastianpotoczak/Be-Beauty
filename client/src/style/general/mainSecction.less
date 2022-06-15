@@ -1,0 +1,104 @@
+@screen-phone: 792px;
+
+article {
+  box-shadow: 8px 8px 24px 0px black;
+  height: 165vh;
+  color: white;
+  @media @tablet {
+    box-shadow: none;
+  }
+  @media @mobile {
+    box-shadow: none;
+  }
+  h1 {
+    font-weight: bold;
+  }
+  .first_article {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @media @tablet {
+      flex-direction: column;
+    }
+    @media @mobile {
+      flex-direction: column;
+    }
+
+    &:nth-child(2) {
+      @media @tablet {
+        flex-direction: column-reverse;
+      }
+      @media @mobile {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .article_contain {
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      text-align: left;
+
+      h1 {
+        font-size: 45px;
+        font-family: "Philosopher", sans-serif;
+        overflow: hidden;
+        & {
+          animation-fill-mode: both;
+          animation-duration: 1s;
+          animation-delay: 0s;
+          animation-iteration-count: 1;
+          animation-name: pulse;
+          overflow: hidden;
+        }
+        &{
+          animation-iteration-count: infinite;
+          overflow: hidden;
+        }
+        @keyframes pulse {
+          from {
+            transform: scale3d(1, 1, 1);
+          }
+          50% {
+            transform: scale3d(1.05, 1.05, 1.05);
+          }
+          to {
+            transform: scale3d(1, 1, 1);
+          }
+        }
+      }
+      h2 {
+        font-family: "Philosopher", sans-serif;
+      }
+    }
+    img {
+      box-shadow: 8px 8px 24px 0px black;
+      height: 500px;
+      max-width: 350px;
+      .media-phone mobile {
+        height: 400px;
+      }
+      &:nth-child(1) {
+        margin-top: 50px;
+      }
+      @media @mobile {
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+    .article_text {
+      padding-bottom: 10px;
+      border-bottom: 2px solid pink;
+      width: 80%;
+      margin: 0 auto;
+      @media @mobile {
+        font-size: 10px;
+      }
+    }
+  }
+}
