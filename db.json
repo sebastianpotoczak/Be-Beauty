@@ -1,53 +1,25 @@
 {
   "events": [
     {
-      "id": "1655125955964",
-      "title": "hgfhgfhfg",
-      "start": "2022-06-20T15:12",
-      "end": "2022-06-24T15:12",
-      "backgroundColor": "#e182f2"
-    },
-    {
-      "id": "1655125964754",
-      "title": "sdadssa321312",
-      "start": "2022-06-27T15:12",
-      "end": "2022-06-30T15:12",
-      "backgroundColor": "#74a6db"
-    },
-    {
-      "id": "1655126274171",
-      "title": "yty",
-      "start": "2022-06-08T15:17",
-      "end": "2022-06-10T15:17",
-      "backgroundColor": "#97ea44"
-    },
-    {
-      "id": "1655126955762",
-      "title": "nowe",
-      "start": "2022-06-08T15:29",
-      "end": "2022-06-08T19:29",
-      "backgroundColor": "#689cd1"
-    },
-    {
-      "id": "1655128902990",
-      "title": ":D",
-      "start": "2022-06-01T16:01",
-      "end": "2022-06-03T16:01",
-      "backgroundColor": "#fc3250"
-    },
-    {
-      "id": "1655199623836",
-      "title": "gvvgfvgfgvffv",
-      "start": "2022-06-13T11:40",
-      "end": "2022-06-17T11:40",
-      "backgroundColor": "#53d60c"
-    },
-    {
       "id": "1655199655611",
       "title": "Deadline",
       "start": "2022-07-11T11:40",
       "end": "2022-07-11T13:40",
       "backgroundColor": "#f4f455"
+    },
+    {
+      "id": "1655282680508",
+      "title": "dsadsadas",
+      "start": "2022-06-15T10:44",
+      "end": "2022-06-16T10:44",
+      "backgroundColor": "rgba(204, 156, 2, 0.5370716053637028)"
+    },
+    {
+      "id": "1655282793709",
+      "title": "Nazwa",
+      "start": "2022-06-16T10:46",
+      "end": "2022-06-17T10:46",
+      "backgroundColor": "rgba(11, 24, 122, 0.3270156378041851)"
     }
   ]
 }

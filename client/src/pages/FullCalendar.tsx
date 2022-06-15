@@ -28,7 +28,10 @@ const DemoApp: React.FC = () => {
     title: event,
     start: day[0],
     end: day[1],
-    backgroundColor: randomColor(),
+    backgroundColor: randomColor({
+      luminosity: 'dark',
+      format: 'rgba' 
+   }),
   };
   useEffect(() => {
     instance.get("").then((response: any) => {

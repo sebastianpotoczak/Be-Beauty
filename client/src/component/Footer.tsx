@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <footer>
       <div>
         <div>
-            <a href="http://localhost:3000/">Ania x beauty</a>
+            <a href="http://localhost:3000/">Be Beauty</a>
         </div>
         <div className="footer_item">
             <a target="_blank" href="https://www.instagram.com/Kingjames"><AiFillInstagram size="35px" /></a>
