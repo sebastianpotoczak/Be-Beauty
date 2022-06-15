@@ -11,7 +11,6 @@ import NewLogin from "./pages/NewLogin";
 import "antd/dist/antd.css";
 import CalendaryView from "./component/CalendaryView";
 
-
 const Index: React.FC = () => {
   return (
     <>
@@ -23,7 +22,6 @@ const Index: React.FC = () => {
     </>
   );
 };
-
 
 const App: React.FC = () => {
   return (

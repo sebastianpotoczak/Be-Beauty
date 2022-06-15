@@ -5,11 +5,19 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import { DatePicker } from "antd";
-import { Input, Button} from "antd";
+import { Input, Button } from "antd";
 import randomColor from "randomcolor";
 import instance from "../common/axios";
+import { Checkbox, Divider } from "antd";
+import type { CheckboxChangeEvent } from "antd/es/checkbox";
+import type { CheckboxValueType } from "antd/es/checkbox/Group";
 
 const { RangePicker } = DatePicker;
+
+const CheckboxGroup = Checkbox.Group;
+
+const plainOptions = [" Malowanie", " Regulacja brwi", " Henna"];
+const defaultCheckedList = [""];
 
 const DemoApp: React.FC = () => {
   const [events, setEvents] = useState<any>(null);
@@ -21,17 +29,35 @@ const DemoApp: React.FC = () => {
   const [nameEvent, setNameInfo] = useState<string[]>([""]);
   const [id, setId] = useState<string>("");
   const [eventInfo, setEventInfo] = useState<string>("none");
+  const [checkedList, setCheckedList] =
+    useState<CheckboxValueType[]>(defaultCheckedList);
+  const [indeterminate, setIndeterminate] = useState(true);
+  const [checkAll, setCheckAll] = useState(false);
+  const [infoError, setInfoError] = useState('none');
 
+  const onChanges = (list: CheckboxValueType[]) => {
+    setCheckedList(list);
+    setIndeterminate(!!list.length && list.length < plainOptions.length);
+    setCheckAll(list.length === plainOptions.length);
+    console.log(checkedList)
+  };
+
+  const onCheckAllChanges = (e: CheckboxChangeEvent) => {
+    setCheckedList(e.target.checked ? plainOptions : []);
+    setIndeterminate(false);
+    setCheckAll(e.target.checked);
+    console.log(checkedList)
+  };
 
   const dataToSend = {
     id: Date.now().toString(),
     title: event,
-    start: day[0],
-    end: day[1],
+    start: day,
+    info: checkedList,
     backgroundColor: randomColor({
-      luminosity: 'dark',
-      format: 'rgba' 
-   }),
+      luminosity: "dark",
+      format: "rgba",
+    }),
   };
   useEffect(() => {
     instance.get("").then((response: any) => {
@@ -40,11 +66,18 @@ const DemoApp: React.FC = () => {
   }, []);
 
   const handleSend = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (event === "" || day === "") {
+    if (event === "" || day === "" ) {
       setError(true);
       setItemError("red");
       setDateError("block");
-    } else {
+      return
+    }else if(checkedList === defaultCheckedList){
+      setInfoError('block')
+      setError(false)
+      setDateError("none")
+      return
+    }else {
+      setInfoError('none')
       instance({
         method: "post",
         data: dataToSend,
@@ -55,8 +88,7 @@ const DemoApp: React.FC = () => {
 
   const onChange = (value: any, dateString: any) => {
     setDay(dateString);
-    console.log(day);
-  };
+    };
 
   const handleEvent = (e: React.FormEvent<HTMLInputElement>) => {
     setEvent(e.currentTarget.value);
@@ -65,8 +97,8 @@ const DemoApp: React.FC = () => {
   const mouseEnter = (data: any) => {
     const dataStart = data.event._instance.range.start.toString();
     const dataTitle = data.event._def.title;
-    const dataEnd = data.event._instance.range.end.toString();
-    setNameInfo([dataTitle, dataStart, dataEnd]);
+    const info = data.event._def.extendedProps.info.toString();
+    setNameInfo([dataTitle, dataStart, info]);
     setId(data.event._def.publicId);
 
     if (nameEvent !== [""]) {
@@ -79,12 +111,11 @@ const DemoApp: React.FC = () => {
     window.location.reload();
   };
 
-
   return (
     <div className="calendary_view">
       <div className="nav_calendary">
         <div className="nav_view">
-          <h2>Dodaj wydarzenie</h2>
+          <h2>Ustal wizytę</h2>
           <h3 style={{ color: itemError }}>Nazwa wydarzenia</h3>
           <Input
             onChange={handleEvent}
@@ -92,13 +123,30 @@ const DemoApp: React.FC = () => {
             placeholder="Nazwa wydarzenia"
           />
           <h3 style={{ color: itemError }}>Wybierz date</h3>
-          <RangePicker
-            showTime={{
-              format: "HH:mm",
-            }}
-            format="YYYY-MM-DDTHH:mm"
-            onChange={onChange}
+          <DatePicker 
+              onChange={onChange}
+              showTime={{
+                format: "HH:mm",
+              }}
+              format="YYYY-MM-DDTHH:mm"
+    
           />
+          <div className="checkbox_add">
+            <Checkbox
+              indeterminate={indeterminate}
+              onChange={onCheckAllChanges}
+              checked={checkAll}
+            >
+              Zaznacz wszystko!
+            </Checkbox>
+            <Divider />
+            <CheckboxGroup
+              options={plainOptions}
+              value={checkedList}
+              onChange={onChanges}
+            />
+
+          </div>
           <Button
             className="button_calendary"
             onClick={handleSend}
@@ -112,14 +160,15 @@ const DemoApp: React.FC = () => {
           <h4 className="add_error_info" style={{ display: dateError }}>
             *Data jest wymagana
           </h4>
+          <h4 className="add_error_info" style={{display: infoError}}>*Musisz wybrać chociaż jedną usługę</h4>
           <div>
             <div style={{ display: eventInfo, padding: "35px 0" }}>
-              <h1>Informacje o wydarzeniu</h1>
+              <h1>Informacje o wizycie</h1>
               <h2>Nazwa wydarzenia</h2>
               <h3>{nameEvent[0]}</h3>
-              <h3>Od:</h3>
+              <h3>Data</h3>
               <p className="event_information">{nameEvent[1]}</p>
-              <h3>Do:</h3>
+              <h3>Wybrane usługi</h3>
               <p className="event_information">{nameEvent[2]}</p>
               <Button
                 style={{ width: "150px" }}

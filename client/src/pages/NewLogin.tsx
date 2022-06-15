@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect} from "react";
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined,MailOutlined  } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
 import Nav from "../component/Nav";
 import Footer from "../component/Footer";
@@ -53,7 +53,7 @@ const NewLogin: React.FC = () => {
         name="username"
         rules={[{ required: true, message: 'Proszę wpisać poprawny email!' }]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
+        <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Email" />
       </Form.Item>
       <Form.Item
         name="password"

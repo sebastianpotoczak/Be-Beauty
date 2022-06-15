@@ -1,25 +1,95 @@
 {
   "events": [
     {
-      "id": "1655199655611",
-      "title": "Deadline",
-      "start": "2022-07-11T11:40",
-      "end": "2022-07-11T13:40",
-      "backgroundColor": "#f4f455"
+      "id": "1655295651450",
+      "title": "Test1",
+      "start": "2022-06-15T14:20",
+      "info": [
+        "Malowanie",
+        "Regulacja brwi",
+        "Henna"
+      ],
+      "backgroundColor": "rgba(221, 113, 4, 0.3101377818995128)"
     },
     {
-      "id": "1655282680508",
-      "title": "dsadsadas",
-      "start": "2022-06-15T10:44",
-      "end": "2022-06-16T10:44",
-      "backgroundColor": "rgba(204, 156, 2, 0.5370716053637028)"
+      "id": "1655296309635",
+      "title": "Test2",
+      "start": "2022-06-03T08:31",
+      "info": [
+        "Malowanie",
+        "Regulacja brwi",
+        "Henna"
+      ],
+      "backgroundColor": "rgba(70, 124, 3, 0.3219743923265417)"
     },
     {
-      "id": "1655282793709",
-      "title": "Nazwa",
-      "start": "2022-06-16T10:46",
-      "end": "2022-06-17T10:46",
-      "backgroundColor": "rgba(11, 24, 122, 0.3270156378041851)"
+      "id": "1655296325946",
+      "title": "Test3",
+      "start": "2022-06-06T15:32",
+      "info": [
+        "Regulacja brwi"
+      ],
+      "backgroundColor": "rgba(200, 20, 206, 0.5033480269676665)"
+    },
+    {
+      "id": "1655296440230",
+      "title": "Test 4",
+      "start": "2022-06-15T14:22",
+      "info": [
+        " Malowanie",
+        " Regulacja brwi",
+        " Henna"
+      ],
+      "backgroundColor": "rgba(49, 158, 6, 0.5304390385597166)"
+    },
+    {
+      "id": "1655296869630",
+      "title": ":D",
+      "start": "2022-06-29T15:42",
+      "info": [
+        " Malowanie",
+        " Regulacja brwi",
+        " Henna"
+      ],
+      "backgroundColor": "rgba(8, 100, 112, 0.8204684137125322)"
+    },
+    {
+      "id": "1655296890454",
+      "title": "Love",
+      "start": "2022-06-13T14:41",
+      "info": [
+        " Malowanie"
+      ],
+      "backgroundColor": "rgba(163, 9, 6, 0.8033530445282571)"
+    },
+    {
+      "id": "1655298269537",
+      "title": "dsadsa",
+      "start": "2022-06-15T15:04",
+      "info": [
+        " Malowanie"
+      ],
+      "backgroundColor": "rgba(7, 142, 133, 0.38661878607030875)"
+    },
+    {
+      "id": "1655298342363",
+      "title": "dsadsa",
+      "start": "2022-06-16T15:05",
+      "info": [
+        " Malowanie"
+      ],
+      "backgroundColor": "rgba(145, 16, 0, 0.05936788754765798)"
+    },
+    {
+      "id": "1655298352672",
+      "title": "dsadsa",
+      "start": "2022-06-16T15:05",
+      "info": [
+        " Malowanie",
+        " Regulacja brwi",
+        " Henna"
+      ],
+      "backgroundColor": "rgba(226, 98, 13, 0.8812274211294469)"
     }
   ]
 }

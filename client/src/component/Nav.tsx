@@ -36,7 +36,7 @@ const Nav: React.FC = () => {
       <nav>
         <div className="contain">
           <div className="nav_text">
-            <a href="https://beauty-app-pl.herokuapp.com/">Be beauty</a>
+            <a href="http://localhost:3000/">Be beauty</a>
             <label form="check">
               <input type="checkbox" id="check" onChange={handleClick} />
               <span className="span"></span>
