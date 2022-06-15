@@ -71,7 +71,7 @@ const DemoApp: React.FC = () => {
       setItemError("red");
       setDateError("block");
       return
-    }else if(checkedList === defaultCheckedList){
+    }else if(checkedList === defaultCheckedList || checkedList === []){
       setInfoError('block')
       setError(false)
       setDateError("none")
@@ -132,13 +132,6 @@ const DemoApp: React.FC = () => {
     
           />
           <div className="checkbox_add">
-            <Checkbox
-              indeterminate={indeterminate}
-              onChange={onCheckAllChanges}
-              checked={checkAll}
-            >
-              Zaznacz wszystko!
-            </Checkbox>
             <Divider />
             <CheckboxGroup
               options={plainOptions}

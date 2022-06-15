@@ -86,7 +86,7 @@ const Register: React.FC = () => {
             rules={[
               {
                 required: true,
-                message: "Please confirm your password!",
+                message: "Hasła muszą być takie same!",
               },
               ({ getFieldValue }) => ({
                 validator(_, value) {
