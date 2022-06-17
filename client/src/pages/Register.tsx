@@ -23,7 +23,7 @@ const Register: React.FC = () => {
 
   const history = useHistory()
   async function registerUser(event: React.MouseEvent<HTMLButtonElement>) {
-    const response = await fetch("http://localhost:1337/api/register", {
+    const response = await fetch("https://bebeautypl.herokuapp.com/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
