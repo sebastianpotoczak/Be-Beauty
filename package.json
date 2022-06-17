@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "cd client && yarn install && yarn build",
+    "heroku-postbuild": "cd client && yarn install && babel src -d lib",
     "json": "json-server -p 3005 -w db.json"
   },
   "dependencies": {
