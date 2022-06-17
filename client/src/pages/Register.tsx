@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Nav from "../component/Nav";
 import Footer from "../component/Footer";
+import { useHistory } from "react-router-dom";
 import { Button, Form, Input } from "antd";
 import {
   LockOutlined,
@@ -9,6 +10,7 @@ import {
   PhoneOutlined,
   MailOutlined,
 } from "@ant-design/icons";
+
 
 const Register: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -18,9 +20,9 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [secondPassword, setSecondPassword] = useState<string>("");
 
-  async function registerUser(event: React.MouseEvent<HTMLButtonElement>) {
-    event.preventDefault();
 
+  const history = useHistory()
+  async function registerUser(event: React.MouseEvent<HTMLButtonElement>) {
     const response = await fetch("http://localhost:1337/api/register", {
       method: "POST",
       headers: {
@@ -42,7 +44,7 @@ const Register: React.FC = () => {
     }
 
     if (data.status === "ok") {
-      return "ok";
+      history.push('/login')
     }
   }
 
@@ -67,6 +69,9 @@ const Register: React.FC = () => {
               prefix={<MailOutlined className="site-form-item-icon" />}
               placeholder="Email"
               type="email"
+              onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                setEmail(e.currentTarget.value)
+              }}
             />
           </Form.Item>
           <Form.Item
@@ -79,6 +84,9 @@ const Register: React.FC = () => {
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               placeholder="Hasło"
+              onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                setPassword(e.currentTarget.value)
+              }}
             />
           </Form.Item>
           <Form.Item
@@ -113,6 +121,23 @@ const Register: React.FC = () => {
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="Imię"
+              onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                setName(e.currentTarget.value)
+              }}
+            />
+          </Form.Item>
+          <Form.Item
+            name="surname"
+            rules={[
+              { required: true, message: "Proszę wpisać nazwisko!" },
+            ]}
+          >
+            <Input
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="Nazwisko"
+              onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                setSurname(e.currentTarget.value)
+              }}
             />
           </Form.Item>
           <Form.Item
@@ -129,6 +154,9 @@ const Register: React.FC = () => {
               minLength={9}
               prefix={<PhoneOutlined className="site-form-item-icon" />}
               placeholder="Numer telefonu"
+              onChange={(e: React.FormEvent<HTMLInputElement>) => {
+                setPhone(e.currentTarget.value)
+              }}
             />
           </Form.Item>
 

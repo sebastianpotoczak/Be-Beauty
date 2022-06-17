@@ -12,8 +12,6 @@ import { Checkbox, Divider } from "antd";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
 import type { CheckboxValueType } from "antd/es/checkbox/Group";
 
-const { RangePicker } = DatePicker;
-
 const CheckboxGroup = Checkbox.Group;
 
 const plainOptions = [" Malowanie", " Regulacja brwi", " Henna"];
@@ -32,22 +30,16 @@ const DemoApp: React.FC = () => {
   const [checkedList, setCheckedList] =
     useState<CheckboxValueType[]>(defaultCheckedList);
   const [indeterminate, setIndeterminate] = useState(true);
-  const [checkAll, setCheckAll] = useState(false);
+
   const [infoError, setInfoError] = useState('none');
 
   const onChanges = (list: CheckboxValueType[]) => {
     setCheckedList(list);
     setIndeterminate(!!list.length && list.length < plainOptions.length);
-    setCheckAll(list.length === plainOptions.length);
     console.log(checkedList)
   };
 
-  const onCheckAllChanges = (e: CheckboxChangeEvent) => {
-    setCheckedList(e.target.checked ? plainOptions : []);
-    setIndeterminate(false);
-    setCheckAll(e.target.checked);
-    console.log(checkedList)
-  };
+
 
   const dataToSend = {
     id: Date.now().toString(),
@@ -71,7 +63,7 @@ const DemoApp: React.FC = () => {
       setItemError("red");
       setDateError("block");
       return
-    }else if(checkedList === defaultCheckedList || checkedList === []){
+    }else if(checkedList === defaultCheckedList){
       setInfoError('block')
       setError(false)
       setDateError("none")
