@@ -11,7 +11,7 @@ const server =  jsonServer.create();
 const router = jsonServer.router('db.json')
 require("dotenv").config({path: "./config.env"})
 
-const port = process.env.PORT || 1337;
+const port = process.env.PORT || 2337;
 
 app.use(express.static(path.join(__dirname, "/client/build")))
 
