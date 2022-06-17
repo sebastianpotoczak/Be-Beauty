@@ -22,8 +22,8 @@ const Register: React.FC = () => {
 
 
   const history = useHistory()
-  async function registerUser(event: React.MouseEvent<HTMLButtonElement>) {
-    const response = await fetch("https://bebeautypl.herokuapp.com/api/register", {
+  async function registerUser() {
+    const response = await fetch("http://localhost:1337/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -120,7 +120,7 @@ const Register: React.FC = () => {
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="Imię"
+              placeholder="name"
               onChange={(e: React.FormEvent<HTMLInputElement>) => {
                 setName(e.currentTarget.value)
               }}

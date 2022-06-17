@@ -11,7 +11,7 @@ const server =  jsonServer.create();
 const router = jsonServer.router('db.json')
 require("dotenv").config({path: "./config.env"})
 
-const port = process.env.PORT || 2337;
+const port = process.env.PORT || 1337;
 
 app.use(express.static(path.join(__dirname, "/client/build")))
 
@@ -102,11 +102,9 @@ app.post('/api/login', async (req, res) => {
 		const surname = jwt.sign({
 			surname: user.surname
 		}, 'secret123')
-		const admin = jwt.sign({
-			admin: user.admin
-		}, 'secret123')
 
-		return res.json({ status: 'ok', user: token, phones: phone, surname: surname, admin: admin})
+
+		return res.json({ status: 'ok', user: token, phones: phone, surname: surname, admin: user.admin})
 	} else {
 		return res.json({ status: 'error', user: false })
 	}

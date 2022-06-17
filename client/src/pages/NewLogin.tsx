@@ -11,7 +11,7 @@ const NewLogin: React.FC = () => {
 
   async function loginUser(event: React.MouseEvent<HTMLElement>) {
 
-    const response = await fetch("https://bebeautypl.herokuapp.com/api/login", {
+    const response = await fetch("http://localhost:1337/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,6 +34,7 @@ const NewLogin: React.FC = () => {
       window.location.href = "/calendary";
     }
   }
+
 
   return (
     <div className="login">
