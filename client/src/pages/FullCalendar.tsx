@@ -24,7 +24,7 @@ const DemoApp: React.FC = () => {
   const [error, setError] = useState<boolean>(false);
   const [dateError, setDateError] = useState<string>("none");
   const [itemError, setItemError] = useState<string>("black");
-  const [nameEvent, setNameInfo] = useState<string[]>([""]);
+  const [nameEvent, setNameInfo] = useState([""]);
   const [id, setId] = useState<string>("");
   const [eventInfo, setEventInfo] = useState<string>("none");
   const [checkedList, setCheckedList] =
@@ -92,8 +92,7 @@ const DemoApp: React.FC = () => {
     const info = data.event._def.extendedProps.info.toString();
     setNameInfo([dataTitle, dataStart, info]);
     setId(data.event._def.publicId);
-
-    if (nameEvent !== [""]) {
+    if (nameEvent === [""]) {
       setEventInfo("block");
     }
   };
