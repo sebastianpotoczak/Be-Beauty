@@ -92,9 +92,7 @@ const DemoApp: React.FC = () => {
     const info = data.event._def.extendedProps.info.toString();
     setNameInfo([dataTitle, dataStart, info]);
     setId(data.event._def.publicId);
-    if (nameEvent === [""]) {
       setEventInfo("block");
-    }
   };
 
   const handleEventDelete = (e: React.MouseEvent<HTMLButtonElement>) => {

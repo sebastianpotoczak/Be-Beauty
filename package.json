@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "json": "json-server -p 3005 -w db.json"
   },
   "dependencies": {
     "antd": "^4.20.7",
